@@ -26,7 +26,7 @@ class App extends Component{
   }
 
   render(){
-    const{post} = this.state;
+    const{posts} = this.state;
     return (
     <section className="container">
         <div className="posts">
