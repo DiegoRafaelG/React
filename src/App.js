@@ -4,7 +4,7 @@ import { Component } from 'react';
 
 class App extends Component{
 
-  state = {posts: []}
+  state = {posts: []};
 
   componentDidMount(){
     this.loadPosts();
@@ -13,6 +13,7 @@ class App extends Component{
   loadPosts = async () =>{
     const postsPesponse = fetch('https://jsonplaceholder.typicode.com/posts');
     const photosResponse = fetch('https://jsonplaceholder.typicode.com/photos');
+
     const [posts, photos] = await Promise.all([postsPesponse, photosResponse]);
 
     const postsJson = await posts.json();
@@ -22,7 +23,7 @@ class App extends Component{
       return{ ...posts, cover: photosJson[index].url}
     });
 
-    this.setState ({post: postsAndPhotos}); 
+    this.setState ({posts: postsAndPhotos}); 
   }
 
   render(){
