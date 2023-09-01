@@ -1,7 +1,7 @@
 
 import './styles.css';
 import { Component } from 'react';
-import { loadPosts } from '../../Utils/load-posts'
+import { loadPosts } from '../../../Components/Posts';
 import { Posts } from '../../../Utils/load-posts';
 
 export class Home extends Component{
@@ -18,7 +18,7 @@ export class Home extends Component{
   }
 
   render(){
-    const{posts} = this.state;
+    const {posts} = this.state;
     return (
     <section className="container">
        <Posts posts={posts} />
