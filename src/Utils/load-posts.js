@@ -1,4 +1,4 @@
-export const loadPosts = async ()=>{
+export const loadposts = async () =>{
     const postsPesponse = fetch('https://jsonplaceholder.typicode.com/posts');
     const photosResponse = fetch('https://jsonplaceholder.typicode.com/photos');
 
