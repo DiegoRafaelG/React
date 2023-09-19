@@ -1,13 +1,10 @@
 
 import './styles.css';
 import { Component } from 'react';
-<<<<<<< HEAD
-import { loadPosts } from '../../../Components/Posts';
+
+import { loadPosts } from '../../../Posts';
 import { Posts } from '../../../Utils/load-posts';
-=======
-import { loadPosts } from '../../Utils/load-posts';
-import { Posts } from '../../../Components/Posts';
->>>>>>> 706fe4df2d2ef1fd0aea45d39b8b160c026cce3f
+
 
 export class Home extends Component{
 
