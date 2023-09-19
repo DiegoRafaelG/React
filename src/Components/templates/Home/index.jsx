@@ -3,7 +3,7 @@ import './styles.css';
 import { Component } from 'react';
 
 import { loadPosts } from '../../../Posts';
-import { Posts } from '../../../Utils/load-posts';
+import { Posts } from '../../../Utils';
 
 
 export class Home extends Component{
