@@ -2,13 +2,16 @@
 import './styles.css';
 import { Component } from 'react';
 
-import { loadPosts } from '../../../Posts';
-import { Posts } from '../../../Utils';
+import { loadPosts } from '../../../Utils/load-posts';
+import { Posts } from '../../../Components/Posts'
 
 
 export class Home extends Component{
 
-  state = {posts: []};
+  state = {
+    posts: []
+  
+  };
 
   async componentDidMount(){
    await this.loadPosts();
