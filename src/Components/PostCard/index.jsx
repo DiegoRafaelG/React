@@ -1,9 +1,12 @@
-export const PostCard = ({post}) =>{
-    <div className="post">
-    <img src={post.cover} alt={post.title} />
+import './styles.css';
+
+export const PostCard = ({ title, cover, body, id }) => (
+  <div className="post">
+    <img src={cover} alt={title} />
     <div className="post-content">
-      <h1>{post.title}</h1>
-      <p>{post.body}</p>
-      </div>
-      </div>
-}
+    
+      <h2>{title} {id}</h2>
+      <p>{body}</p>
+    </div>
+  </div>
+)
