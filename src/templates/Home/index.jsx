@@ -48,6 +48,8 @@ export class Home extends Component {
 
     return (
       <section className="container">
+        <input type= "search"/><br/><br/><br/>
+
         <Posts posts={posts} />
 
         <div class="button-container">
