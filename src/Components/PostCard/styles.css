@@ -1,6 +1,6 @@
 .post {
     background: #fff;
-    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1);
 }
 .post:hover{
     transform: scale(1.05);
@@ -10,5 +10,5 @@
     max-width: 100%;
 }
 .post-content {
-    padding: 30px;
+    padding: 10px;
   }

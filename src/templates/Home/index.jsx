@@ -11,7 +11,8 @@ export class Home extends Component {
     posts: [],
     allPosts: [],
     page: 0,
-    postsPerPage: 10
+    postsPerPage: 25,
+    searchValue: ''
   };
 
   async componentDidMount() {
@@ -42,13 +43,22 @@ export class Home extends Component {
     this.setState({ posts, page: nextPage });
   }
 
+  handleChange = (e) => {
+    const {value} = e.target;
+    this.setState({ searchValue: value});
+  }
+
   render() {
-    const { posts, page, postsPerPage, allPosts } = this.state;
+    const { posts, page, postsPerPage, allPosts, searchValue } = this.state;
     const noMorePosts = page + postsPerPage >= allPosts.length;
 
     return (
       <section className="container">
-        <input type= "search"/><br/><br/><br/>
+        <input type= "search"
+        onChange={this.handleChange}
+        value={searchValue}
+        
+        /><br/><br/><br/>
 
         <Posts posts={posts} />
 
