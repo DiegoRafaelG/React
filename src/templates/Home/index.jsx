@@ -47,6 +47,12 @@ export class Home extends Component {
     const {value} = e.target;
     this.setState({ searchValue: value});
   }
+  enter = ()=> {
+  const enter = document.getElementsByClassName('enter')
+  enter.addEventListener('keypress', (e)=> {
+    if(e.keycode === 13)
+    return
+  })}
 
   render() {
     const { posts, page, postsPerPage, allPosts, searchValue } = this.state;
@@ -54,11 +60,18 @@ export class Home extends Component {
 
     return (
       <section className="container">
-        <input type= "search"
+        {!!searchValue &&( <>
+        <h1>Search <>:{searchValue}</></h1>
+        </>)}
+
+
+        <input type= "search" className="enter"
         onChange={this.handleChange}
         value={searchValue}
         
-        /><br/><br/><br/>
+        />
+        
+        <br/><br/><br/>
 
         <Posts posts={posts} />
 
@@ -69,7 +82,10 @@ export class Home extends Component {
             disabled={noMorePosts}
           />
         </div>
+        
+      
       </section>
+   
     );
   }
 }
