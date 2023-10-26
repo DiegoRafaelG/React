@@ -11,7 +11,7 @@ export class Home extends Component {
     posts: [],
     allPosts: [],
     page: 0,
-    postsPerPage: 25,
+    postsPerPage: 2,
     searchValue: ''
   };
 
@@ -76,11 +76,14 @@ export class Home extends Component {
         <Posts posts={posts} />
 
         <div class="button-container">
-          <Button
+          {!searchValue && (
+            <Button
             text="Load more posts"
             onClick={this.loadMorePosts}
             disabled={noMorePosts}
           />
+          )}
+          
         </div>
         
       
