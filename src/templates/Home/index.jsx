@@ -11,7 +11,7 @@ export class Home extends Component {
     posts: [],
     allPosts: [],
     page: 0,
-    postsPerPage: 2,
+    postsPerPage:2,
     searchValue: ''
   };
 
@@ -47,21 +47,23 @@ export class Home extends Component {
     const {value} = e.target;
     this.setState({ searchValue: value});
   }
-  enter = ()=> {
-  const enter = document.getElementsByClassName('enter')
-  enter.addEventListener('keypress', (e)=> {
-    if(e.keycode === 13)
-    return
-  })}
 
+  
   render() {
     const { posts, page, postsPerPage, allPosts, searchValue } = this.state;
     const noMorePosts = page + postsPerPage >= allPosts.length;
 
+   const filteredPosts = !!searchValue ? allPosts.filter(post =>{
+    return post.title.toLowerCase().includes(
+      searchValue.toLowerCase()
+    );
+   }):posts;
+
     return (
       <section className="container">
-        {!!searchValue &&( <>
-        <h1>Search <>:{searchValue}</></h1>
+        {!!searchValue &&(
+          <>
+        <h1>Search value:{searchValue}</h1>
         </>)}
 
 
@@ -73,6 +75,8 @@ export class Home extends Component {
         
         <br/><br/><br/>
 
+        {filteredPosts.length > 0 &&(<Posts posts = {filteredPosts}/>)}
+        {filteredPosts.length === 0 &&(<p>No Posts</p>)}
         <Posts posts={posts} />
 
         <div class="button-container">
