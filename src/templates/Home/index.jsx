@@ -69,7 +69,7 @@ export class Home extends Component {
         <h1>Search value: {searchValue}</h1>
        
         )}
-        <TextInput searchValue={searchValue, this.handleChange}/>
+        <TextInput searchValue={searchValue} handleChange={this.handleChange}/>
     </div>
        
         
