@@ -4,7 +4,7 @@ export const TextInput = ({searchValue, handleChange}) => {
     return(
         <input
         className= "text-input"
-        onChange={ this.handleChange}
+        onChange={handleChange}
         value={searchValue}
         type="search"
         placeholder="Type your serach"
