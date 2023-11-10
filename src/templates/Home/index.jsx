@@ -12,7 +12,7 @@ export class Home extends Component {
     posts: [],
     allPosts: [],
     page: 0,
-    postsPerPage:2,
+    postsPerPage: 1,
     searchValue: ''
   };
 
@@ -25,8 +25,7 @@ export class Home extends Component {
 
     const postsAndPhotos = await loadPosts();
     this.setState({
-      posts: postsAndPhotos.slice(page, postsPerPage),
-      allPosts: postsAndPhotos,
+      posts: postsAndPhotos.slice(page, postsPerPage), allPosts: postsAndPhotos,
     });
   }
 
