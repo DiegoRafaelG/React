@@ -16,15 +16,15 @@ export class Home extends Component {
     searchValue: ''
   };
 
-  async componentDidMount() {
-    await this.loadPosts();
+    componentDidMount() {
+    this.loadPosts();
   }
 
   loadPosts = async () => {
     const { page, postsPerPage } = this.state;
 
     const postsAndPhotos = await loadPosts();
-    this.setState({
+    this.setState({...this.state,
       posts: postsAndPhotos.slice(page, postsPerPage), allPosts: postsAndPhotos,
     });
   }
@@ -51,9 +51,9 @@ export class Home extends Component {
   
   render() {
     const { posts, page, postsPerPage, allPosts, searchValue } = this.state;
-    const noMorePosts = page + postsPerPage >= allPosts.length;
 
-   const filteredPosts = !!searchValue ? allPosts.filter(post =>{
+    const noMorePosts = page + postsPerPage >= allPosts.length;
+    const filteredPosts = !!searchValue ? allPosts.filter(post =>{
     return post.title.toLowerCase().includes(
       searchValue.toLowerCase()
     );
