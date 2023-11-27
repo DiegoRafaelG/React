@@ -4,7 +4,7 @@ export const loadPosts = async () =>{
 
     const [posts, photos] = await Promise.all([postsPesponse, photosResponse]);
 
-    const postsJson = await posts.json();
+  const postsJson = await posts.json();
     const photosJson = await photos.json();
 
     const postsAndPhotos = postsJson.map((posts, index) => {
