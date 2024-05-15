@@ -43,40 +43,25 @@ import { TextInput } from '../../Components/TextInput';
   }
     
   const noMorePosts = page + postsPerPage >=  allPosts.length;
-  const filteredPosts = !!searchValue?
-    allPosts.filter(post => {
+  const filteredPosts = searchValue?
+    allPosts.filter((post) => {
       return post.title.toLowerCase().includes(searchValue.toLowerCase());
     }) : posts;
 
     return (
       <section className="container">
-
         <div className="search-container">
-          {!!searchValue &&( <h1>Search value: {searchValue}</h1> )}
+          {!!searchValue && <h1>Search value: {searchValue}</h1> }
            <TextInput searchValue={searchValue} handleChange={handleChange}/>
         </div>
-       
-
-        {filteredPosts.length > 0 &&(<Posts posts = {filteredPosts}/>)}
-
-        {filteredPosts.length === 0 &&(<p>No Posts</p>)}
-        
-        <Posts posts={filteredPosts} />
-
-        <div className="button-container">
-          {!searchValue && (
-            <Button
-            text="Load more posts"
-            onClick={loadMorePosts}
-            disabled={noMorePosts}
-          />
-          )}
-          
-        </div>
-        
       
-      </section>
-   
-    );
-  }
+        {filteredPosts.length > 0 && <Posts posts = {filteredPosts}/>}
 
+        {filteredPosts.length === 0 && <p>No Posts :(</p>}
+        
+        <div className="button-container">
+          {!searchValue && <Button text = "Load more posts" onClick={loadMorePosts} disabled = {noMorePosts}/>}
+        </div>
+      </section>
+    );
+  };
